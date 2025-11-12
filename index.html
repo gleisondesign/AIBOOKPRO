@@ -118,12 +118,14 @@
                     </p>
                     
                     <div class="email-section">
-<form method="POST" action="https://script.google.com/macros/s/AKfycby9DilajeBs-BmuQ0mzYyr2V5EC8LU7F5DGgtV5cEWdLL6ATOfBTAhXAtxMSLwlcwIj/exec" class="email-form">
-    <input type="email" name="email" placeholder="Enter your email" class="email-input" required>
-    <button type="submit" class="subscribe-btn">
-        Get Access Now
-    </button>
-</form>
+                        <form method="POST" action="https://api.staticforms.xyz/submit" class="email-form">
+                            <input type="email" name="email" placeholder="Enter your email" class="email-input" required>
+                            <input type="hidden" name="accessKey" value="sf_egl2d68b7n210m27il2a49l0">
+                            <input type="hidden" name="redirectTo" value="https://www.aibookpro.com/full-access/">
+                            <button type="submit" class="subscribe-btn" onclick="fbq('track', 'Lead');">
+                                Get Access Now
+                            </button>
+                        </form>
                     </div>
                 </div>
 
