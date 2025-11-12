@@ -3,45 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI BOOK PRO - Full Access</title>
+    <title>AI BOOK PRO - Access Loading</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <p id="motivational-text">You are about to unlock the full power of AI tools!</p>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                    <path d="M20 0L25.8778 14.1222L40 20L25.8778 25.8778L20 40L14.1222 25.8778L0 20L14.1222 14.1222L20 0Z" fill="url(#gradient)"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#a855f7"/>
+                            <stop offset="100%" style="stop-color:#ec4899"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text">AI BOOK PRO</span>
+            </div>
         </div>
-        <div class="loading-container">
-            <div class="loader"></div>
-            <p class="redirect-text">Redirecting...</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="loading-box">
+                <div class="loading-texts">
+                    <p id="phrase">Loading AI modules...</p>
+                </div>
+                <div class="loading-bar">
+                    <div class="progress"></div>
+                </div>
+                <p class="redirect-text">Redirecting...</p>
+            </div>
         </div>
-    </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container" style="text-align: center; padding: 20px 0;">
+            <p style="font-weight: 600;">Processing secure access<br>© 2025 AIBOOKPRO All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
         const phrases = [
-            "You are about to discover a world of AI tools!",
-            "Welcome to AI BOOK PRO, your gateway to creativity!",
-            "These tools will change the way you create content!",
-            "Unlock the secrets of AI and stay ahead of the curve!",
-            "Your creative journey is about to get a powerful boost!",
-            "Imagine what you can create with all these AI tools!",
-            "Step into the future of content creation today!"
+            "Initializing AI Book Pro environment...",
+            "Calibrating creative intelligence modules...",
+            "Optimizing data for smarter creations...",
+            "Welcome to the future - AI Book Pro is ready!",
+            "You’re about to unlock the future of creation with AI.",
+            "Your content will never be the same again.",
+            "The smartest creators are already here.",
+            "You’re one click away from changing the way you create forever."
         ];
 
-        const textElement = document.getElementById('motivational-text');
+        const phraseEl = document.getElementById("phrase");
 
-        function changePhrase() {
-            const randomIndex = Math.floor(Math.random() * phrases.length);
-            textElement.textContent = phrases[randomIndex];
+        // Mostra uma frase aleatória ao abrir a página
+        function showRandomPhrase() {
+            const random = Math.floor(Math.random() * phrases.length);
+            phraseEl.textContent = phrases[random];
         }
 
-        // Change phrase every 3 seconds
-        setInterval(changePhrase, 3000);
+        // Troca a frase a cada 2 segundos
+        function changePhrase() {
+            const random = Math.floor(Math.random() * phrases.length);
+            phraseEl.textContent = phrases[random];
+        }
 
-        // Redirect after 25 seconds
+        showRandomPhrase();
+        setInterval(changePhrase, 2000);
+
+        // Animação de progresso
+        const progress = document.querySelector(".progress");
+        let width = 0;
+        function animateProgress() {
+            if (width < 100) {
+                const step = Math.random() * 8;
+                width += step;
+                progress.style.width = width + "%";
+                setTimeout(animateProgress, 200 + Math.random() * 200);
+            }
+        }
+        animateProgress();
+
+        // Redireciona após 7 segundos
         setTimeout(() => {
             window.location.href = "https://pay.kiwify.com/QcEtlJY";
-        }, 25000);
+        }, 7000);
     </script>
 </body>
 </html>
