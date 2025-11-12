@@ -118,11 +118,10 @@
                     </p>
                     
                     <div class="email-section">
-                        <form method="POST" action="https://formsubmit.co/0b61c3c37df5aa7e212218beec30afd9" class="email-form">
+                        <form method="POST" action="https://api.staticforms.xyz/submit" class="email-form">
                             <input type="email" name="email" placeholder="Enter your email" class="email-input" required>
-                            <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_template" value="box">
-                            <input type="hidden" name="_next" value="https://pay.kiwify.com/QcEtlJY">
+                            <input type="hidden" name="accessKey" value="sf_egl2d68b7n210m27il2a49l0">
+                            <input type="hidden" name="redirectTo" value="https://pay.kiwify.com/QcEtlJY">
                             <button type="submit" class="subscribe-btn" onclick="fbq('track', 'Lead');">
                                 Get Access Now
                             </button>
@@ -166,15 +165,14 @@
                     >
                         <source src="https://www.aibookpro.com/SRC/VIDEO%20AI%20BOOK%20PRO%20v4%20comprimido.mp4" type="video/mp4">
                         Your browser does not support HTML5 video.
-                    </video>
+                        </video>
                 </div>
 
                 <div class="email-section">
-                    <form method="POST" action="https://formsubmit.co/0b61c3c37df5aa7e212218beec30afd9" class="email-form">
+                    <form method="POST" action="https://api.staticforms.xyz/submit" class="email-form">
                         <input type="email" name="email" placeholder="Enter your email" class="email-input" required>
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="box">
-                        <input type="hidden" name="_next" value="https://pay.kiwify.com/QcEtlJY">
+                        <input type="hidden" name="accessKey" value="sf_egl2d68b7n210m27il2a49l0">
+                        <input type="hidden" name="redirectTo" value="https://pay.kiwify.com/QcEtlJY">
                         <button type="submit" class="subscribe-btn" onclick="fbq('track', 'Lead');">
                             Get Access Now
                         </button>
@@ -190,7 +188,7 @@
         </div>
     </footer>
 
-    <!-- Fallback inteligente para o FormSubmit -->
+    <!-- Fallback inteligente para o StaticForms -->
     <script>
     document.querySelectorAll("form").forEach(form => {
       form.addEventListener("submit", function(event) {
@@ -202,12 +200,12 @@
         btn.innerText = "Processing...";
         btn.disabled = true;
 
-        // Redirecionamento automático após 4 segundos, mesmo se o FormSubmit cair
+        // Redirecionamento automático após 4 segundos, mesmo se a API do StaticForms falhar
         const fallback = setTimeout(() => {
           window.location.href = redirectURL;
         }, 4000);
 
-        // Tenta envio real via FormSubmit
+        // Envio via StaticForms
         fetch(form.action, {
           method: "POST",
           body: formData,
