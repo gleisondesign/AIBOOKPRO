@@ -83,6 +83,18 @@
     fbq('init', '245347669270332');
     fbq('track', 'PageView');
     </script>
+
+    <!-- CENTRALIZAÇÃO + LINHA DE UPDATE -->
+    <style>
+        .update-line {
+            text-align: center;
+            width: 100%;
+            font-size: 14px;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+    </style>
+
 </head>
 <body>
     <noscript><img height="1" width="1" style="display:none"
@@ -144,6 +156,10 @@
                             Your browser does not support HTML5 video.
                         </video>
                     </div>
+
+                    <!-- LINHA DE UPDATE DESKTOP -->
+                    <div id="update-line-desktop" class="update-line">Pack AI tools updated on:</div>
+
                 </div>
             </div>
 
@@ -165,8 +181,11 @@
                     >
                         <source src="https://www.aibookpro.com/SRC/VIDEO%20AI%20BOOK%20PRO%20v4%20comprimido.mp4" type="video/mp4">
                         Your browser does not support HTML5 video.
-                        </video>
+                    </video>
                 </div>
+
+                <!-- LINHA DE UPDATE MOBILE -->
+                <div id="update-line-mobile" class="update-line">Pack AI tools updated on:</div>
 
                 <div class="email-section">
                     <form method="POST" action="https://api.staticforms.xyz/submit" class="email-form">
@@ -200,12 +219,10 @@
         btn.innerText = "Processing...";
         btn.disabled = true;
 
-        // Redirecionamento automático após 4 segundos, mesmo se a API do StaticForms falhar
         const fallback = setTimeout(() => {
           window.location.href = redirectURL;
         }, 4000);
 
-        // Envio via StaticForms
         fetch(form.action, {
           method: "POST",
           body: formData,
@@ -221,6 +238,27 @@
         });
       });
     });
+    </script>
+
+    <!-- SCRIPT QUE ATUALIZA A DATA A CADA 5 DIAS -->
+    <script>
+    const startDate = new Date("2025-11-18");
+    const intervalDays = 5;
+    const today = new Date();
+
+    const diffTime = today.getTime() - startDate.getTime();
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    const cycles = Math.floor(diffDays / intervalDays);
+
+    const lastUpdated = new Date(startDate);
+    lastUpdated.setDate(startDate.getDate() + cycles * intervalDays);
+
+    const formatted = lastUpdated.toISOString().split("T")[0];
+
+    const text = "Pack AI tools updated on: " + formatted;
+
+    document.getElementById("update-line-desktop").textContent = text;
+    document.getElementById("update-line-mobile").textContent = text;
     </script>
 
     <script src="script.js"></script>
